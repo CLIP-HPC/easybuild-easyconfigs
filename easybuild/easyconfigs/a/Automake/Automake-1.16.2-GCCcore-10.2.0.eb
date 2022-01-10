@@ -26,7 +26,7 @@ sources = [SOURCELOWER_TAR_GZ]
 checksums = ['b2f361094b410b4acbf4efba7337bdb786335ca09eb2518635a09fb7319ca5c1']
 
 builddependencies = [
-    ('binutils', '2.35'),
+    ('binutils', '2.37'),
     # non-standard Perl modules are required,
     # see https://github.com/easybuilders/easybuild-easyconfigs/issues/1822
     ('Perl', '5.32.0'),

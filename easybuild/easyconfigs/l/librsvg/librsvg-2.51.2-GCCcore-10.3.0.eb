@@ -6,7 +6,7 @@ version = '2.51.2'
 homepage = 'https://wiki.gnome.org/Projects/LibRsvg'
 description = "Librsvg is a library to render SVG files using cairo."
 
-toolchain = {'name': 'GCCcore', 'version': '10.3.0'}
+toolchain = {'name': 'GCC', 'version': '10.3.0'}
 
 source_urls = ['https://download.gnome.org/sources/librsvg/%(version_major_minor)s/']
 sources = [SOURCE_TAR_XZ]
@@ -34,6 +34,8 @@ sanity_check_paths = {
               'lib/pkgconfig/librsvg-%(version_major)s.0.pc'],
     'dirs': ['include/librsvg-%(version_major)s.0/librsvg', 'share'],
 }
+
+
 
 sanity_check_commands = ["rsvg-convert --help"]
 

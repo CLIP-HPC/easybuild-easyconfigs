@@ -82,7 +82,7 @@ components = [
         ],
         'checksums': [
             'b3dfdd3877343516f98bc49f8adbbb5101e8900524470816d4495a22ed986857',  # v2.0.1.tar.gz
-            '24510899eeb49167cffedec8fa45363a4d08279c0c637a403b452f7d0ac09451',  # stereo_chemical_props-7102c6.txt
+            'bf1206dc5e25e4f91b5830011efc89b200ee7f5852423813e0c599336f1941ae',  # stereo_chemical_props-7102c6.txt
             '826d2d1a5d6ac52c51a60ba210e1947d5631a1e2d76f8815305b5d23f74458db',  # AlphaFold-2.0.0_fix-packages.patch
             '60c60abc254e713787843a1a53fcccefc56d242fa1cfa826701a5ff39227bd52',  # AlphaFold-2.0.1_data-dep-paths.patch
             'dfda4dd5f9aba19fe2b6eb9a0ec583d12dcefdfee8ab8803fc57ad48d582db04',  # AlphaFold-2.0.0_n-cpu.patch
@@ -99,7 +99,7 @@ use_pip = True
 exts_list = [
     ('PDBFixer', '1.7', {
         'source_urls': ['https://github.com/openmm/pdbfixer/archive/refs/tags/'],
-        'sources': [{'download_filename': 'v%(version)s.tar.gz', 'filename': SOURCE_TAR_GZ}],
+        'sources': [{'download_filename': 'v%(version)s.tar.gz', 'filename': '%(name)s-%(version)s.tar.gz'}],
         'checksums': ['a0bef3c52a7bbe69a6aea5333f51f3e7d158339be5829aed19b0344bd66d4eea'],
     }),
     ('toolz', '0.11.1', {
@@ -112,20 +112,18 @@ exts_list = [
         'checksums': ['eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7'],
     }),
     ('dm-haiku', '0.0.4', {
-        # source tarball on PyPI is missing requirements.txt,
-        # see https://github.com/deepmind/dm-haiku/issues/44
-        'source_urls': ['https://github.com/deepmind/dm-haiku/archive/refs/tags/'],
-        'sources': [{'download_filename': 'v%(version)s.tar.gz', 'filename': SOURCE_TAR_GZ}],
-        'checksums': ['e9896d161938b53f869fde207f3f6fca496d09b2a47d21dd9b6b65e897ad6aab'],
         'modulename': 'haiku',
+        'source_urls': ['https://github.com/deepmind/dm-haiku/archive/refs/tags/'],
+        'sources': [{'download_filename': 'v%(version)s.tar.gz', 'filename': '%(name)s-%(version)s.tar.gz'}],
+        'checksums': ['e9896d161938b53f869fde207f3f6fca496d09b2a47d21dd9b6b65e897ad6aab'],
     }),
     ('dm-tree', '0.1.6', {
-        'checksums': ['6776404b23b4522c01012ffb314632aba092c9541577004ab153321e87da439a'],
         'modulename': 'tree',
+        'checksums': ['6776404b23b4522c01012ffb314632aba092c9541577004ab153321e87da439a'],
     }),
     ('websocket-client', '1.2.1', {
-        'checksums': ['8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d'],
         'modulename': 'websocket',
+        'checksums': ['8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d'],
     }),
     ('docker', '5.0.0', {
         'checksums': ['3e8bc47534e0ca9331d72c32f2881bb13b93ded0bcdeab3c833fb7cf61c0a9a5'],
@@ -137,9 +135,8 @@ exts_list = [
         'checksums': ['ab1e2bfe1d01d968e1b7e8d9023bc51ef3509bba217bb730cee3827e1ee82869'],
     }),
     ('ml_collections', '0.1.0', {
-        'checksums': ['59a17fcd1c140153009788517f304caaddd7a94f06690f9f0ed09987beebcf3c'],
-        # see https://github.com/google/ml_collections/issues/7
         'preinstallopts': "touch requirements.txt && touch requirements-test.txt && ",
+        'checksums': ['59a17fcd1c140153009788517f304caaddd7a94f06690f9f0ed09987beebcf3c'],
     }),
 ]
 

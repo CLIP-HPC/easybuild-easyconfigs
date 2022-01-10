@@ -1,0 +1,42 @@
+
+easyblock = 'PythonPackage'
+
+name = 'gdal2mbtiles'
+version = '2.1.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/ecometrica/gdal2mbtiles'
+description = """Converts a GDAL-readable dataset into an MBTiles file. This is used to generate web maps. """
+
+toolchain = {'name': 'foss', 'version': '2020b'}
+
+
+source_urls = ['https://files.pythonhosted.org/packages/a1/91/273b79d97c8e04d34cd73ca0ccc8fe5cbfd713a0a84a734e3c4d149cfab3/']
+sources = ['%(name)s-%(version)s.tar.gz']
+checksums = ['33ffedd465973c8bf2dc356133aa15713f11e99151eebb8ceca3a3b8fcaddcea']
+
+#exts_defaultclass = 'PythonPackage'
+
+dependencies = [
+   ('Python', '3.8.6'),
+   ('SciPy-bundle', '2020.11'),
+   ('GDAL', '2.2.3', versionsuffix),
+   ('webcolors', '1.11.1', versionsuffix),
+   ('pyvips', '2.1.16', versionsuffix),
+]
+
+
+use_pip = True
+
+
+#skipsteps = ['sanitycheck']
+
+#sanity_check_commands = ["python -c 'import gdal2mbtiles'"]
+ 
+sanity_check_paths = {
+    'files': ['bin/gdal2mbtiles'],
+    'dirs': ['lib/python3.8/site-packages/']
+}
+
+
+moduleclass = 'data'

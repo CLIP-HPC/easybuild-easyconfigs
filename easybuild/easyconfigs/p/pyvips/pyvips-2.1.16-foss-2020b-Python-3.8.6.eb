@@ -1,0 +1,40 @@
+easyblock = 'PythonPackage'
+
+name = 'pyvips'
+version = '2.1.16'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/ubernostrum/webcolors'
+description = """python binding for libvips using cffi """
+
+toolchain = {'name': 'foss', 'version': '2020b'}
+
+
+source_urls = ['https://files.pythonhosted.org/packages/85/df/295c2303909332df4a6997b484e68e979d6c069034fea444159309a7ec47/']
+sources = ['%(name)s-%(version)s.tar.gz']
+checksums = ['654c03014a15f846786807a2ece6f525a8fec883d1c857742c8e37da149a81ed']
+
+
+
+dependencies = [
+   ('Python', '3.8.6'),
+   ('SciPy-bundle', '2020.11'),
+   ('GDAL', '2.2.3', versionsuffix),
+   ('Glib', '2.66.1'),
+   ('libvips', '8.12.1'),
+]
+
+use_pip = True
+
+#skipsteps = ['sanitycheck']
+
+
+sanity_check_commands = ["python -c 'import pyvips'"]
+
+
+
+
+
+moduleclass = 'data'
+
+

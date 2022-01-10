@@ -21,7 +21,7 @@ sources = ['readline-%(version)s.tar.gz']
 checksums = ['e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461']
 
 builddependencies = [
-    ('binutils', '2.35'),
+    ('binutils', '2.37'),
 ]
 dependencies = [
     ('ncurses', '6.2'),

@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'libvips'
+version = '8.12.1'
+
+homepage = 'https://www.libvips.org/'
+description = """A fast image processing library with low memory needs."""
+
+toolchain = {'name': 'foss', 'version': '2020b'}
+
+source_urls = ['https://github.com/libvips/libvips/releases/download/v%(version)s/']
+sources = ['vips-%(version)s.tar.gz']
+
+builddependencies = [
+   ('Glib', '2.66.1'),
+   ('expat', '2.2.9'),
+   ('pkg-config', '0.29.2'),
+]
+
+dependencies = [
+    ('libjpeg-turbo', '2.0.5'),
+   #('libexif', ''),
+   ('giflib', '5.2.1'),
+   #('librsvg', '2.51.2'), #if not available libvips use imagemagick isntead
+   #('PDFium', ''),
+   #('Poppler-glib', ''), #imagemagick
+   #('libgsf', ''),
+   ('libTIFF', '4.2.0'),
+]
+
+
+#sanity_check_paths = {
+    #'files': ['bin/'],
+    #'dirs': []
+#}
+
+moduleclass = 'tools'

@@ -14,7 +14,7 @@ checksums = ['ce35865411f0490368a8fc383f29071de6690cbadc27704734978221f25e2bed']
 
 builddependencies = [
     ('binutils', '2.36.1'),
-    ('Python', '3.9.5'),
+    ('Python', '3.8.6'),
 ]
 
 cmds_map = [('.*', "./configure.py --bootstrap")]

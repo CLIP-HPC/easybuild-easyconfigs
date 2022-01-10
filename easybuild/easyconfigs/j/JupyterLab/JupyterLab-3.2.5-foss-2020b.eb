@@ -1,0 +1,46 @@
+easyblock = 'PythonBundle'
+
+name = 'JupyterLab'
+version = '3.2.5'
+
+homepage = "https://jupyter.org/"
+description = """JupyterLab is the next-generation user interface for Project Jupyter offering all the familiar
+ building blocks of the classic Jupyter Notebook (notebook, terminal, text editor, file browser, rich outputs,
+ etc.) in a flexible and powerful user interface. JupyterLab will eventually replace the classic Jupyter
+ Notebook."""
+
+toolchain = {'name': 'foss', 'version': '2020b'}
+
+builddependencies = [('binutils', '2.35')]
+
+dependencies = [
+    ('Python', '3.8.6'),
+    ('IPython', '7.18.1'),
+]
+
+use_pip = True
+sanity_pip_check = True
+
+exts_list = [
+    ('json5', '0.9.5', {
+        'checksums': ['703cfee540790576b56a92e1c6aaa6c4b0d98971dc358ead83812aa4d06bdb96'],
+    }),
+    ('jupyterlab_server', '2.10.2', {
+        'checksums': ['bf1ec9e49d4e26f14d70055cc293b3f8ec8410f95a4d5b4bd55c442d9b8b266c'],
+    }),
+    (name, version, {
+        'patches': ['%(name)s-1.2.5_set-app-path-for-easybuild.patch'],
+        'source_tmpl': '%(namelower)s-%(version)s.tar.gz',
+        'checksums': [
+            '31b28f473b0f5826d2020583973c385526f0559b5b26efac6b8035ac1562874a',  # jupyterlab-3.2.5.tar.gz
+            # JupyterLab-1.2.5_set-app-path-for-easybuild.patch
+            'a219b1071f37f848f7e79c6800149c0b2386a2b748be43288bc32af8e7dab668',
+        ],
+    }),
+]
+
+sanity_check_commands = ["jupyter lab --help"]
+
+modextravars = {'JUPYTERLAB_DIR': '%(installdir)s/share/jupyter/lab'}
+
+moduleclass = 'tools'

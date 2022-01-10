@@ -18,7 +18,7 @@ checksums = ['f51c99cb114deb21a60075ffb494c1a210eb9d7cb729ed042ddb7de9534451ea']
 
 builddependencies = [
     ('Autotools', '20200321'),
-    ('binutils', '2.35'),
+    ('binutils', '2.37'),
 ]
 
 # enable C++ interface
