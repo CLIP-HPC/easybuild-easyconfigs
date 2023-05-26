@@ -1,0 +1,56 @@
+# @file:   NextDenovo-1.1-GCC-11.2.0.eb
+# @author: Hong Tao
+# Cloud Infrastructure Platform (CLIP)
+# 12.01.2023
+
+easyblock = 'PackedBinary'
+
+name = 'NextDenovo'
+version = '2.5.0'
+
+homepage = 'https://github.com/Nextomics/NextDenovo/'
+description = """Fast and accurate de novo assembler for long reads"""
+
+toolchain = {'name': 'GCC', 'version': '11.2.0'}
+
+source_urls = ["https://github.com/Nextomics/NextDenovo/releases/download/"]
+sources = ["v%(version)s/%(name)s.tgz"]
+checksums = ['f8ae3cb591f880c4ff71bd8832cdd6b0f969033b31b5433eda947d76530bcc1f']
+
+dependencies = [
+    ('Python', '3.9.6'),
+]
+
+
+exts_defaultclass = 'PythonPackage'
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'download_dep_fail': True,
+    'use_pip': True,
+    'sanity_check_pip': True,
+}
+
+exts_list = [
+    ('Paralleltask', '0.1.1', {
+        'checksums': ['9bf84d83acbc208d03adc7c9771f60c4d871bbfdc540f2243721fab5675e97fe'],
+    }),
+]
+
+modextrapaths = {'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'}
+
+
+sanity_check_paths = {
+    'files': [	'bin/bam_sort', 'bin/minimap2-nd', 'bin/nextgraph', 
+		'bin/ovl_cvt', 'bin/ovl_sort', 'bin/seq_bit', 
+		'bin/seq_dump', 'bin/seq_stat', 'nextDenovo', 'bin/paralleltask'],
+    'dirs': ['bin/', ],
+}
+
+
+sanity_check_commands = [ 
+'nextDenovo test_data/run.cfg'
+]
+
+
+moduleclass = 'bio'
