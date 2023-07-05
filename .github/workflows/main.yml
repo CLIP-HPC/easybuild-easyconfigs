@@ -1,0 +1,20 @@
+name: Sync Fork with Main
+
+on:
+  schedule:
+    - cron: '30 * * * *'  
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/CLIP-HPC/easybuild-easyconfigs
+
+      - name: Fetch upstream changes
+        run: git pull upstream
+
