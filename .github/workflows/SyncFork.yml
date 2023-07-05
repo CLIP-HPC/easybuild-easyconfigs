@@ -14,9 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Add upstream remote
-        run: git remote add upstream https://github.com/easybuilders/easybuild-easyconfigs
-
       - name: Fetch upstream changes to main
         run: gh repo sync karoshi-0815/easybuild-easyconfigs -b main
         env:
