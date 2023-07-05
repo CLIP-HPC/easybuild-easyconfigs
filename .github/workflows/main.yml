@@ -18,5 +18,5 @@ jobs:
         run: git remote add upstream https://github.com/easybuilders/easybuild-easyconfigs
 
       - name: Fetch upstream changes
-        run: git pull upstream develop
+        run: gh repo sync easybuild-easyconfigs -b develop
 
