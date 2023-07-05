@@ -2,7 +2,7 @@ name: Sync Fork with Main
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  
+    - cron: '* */6 * * *'  
   
   workflow_dispatch: # on button click
 
