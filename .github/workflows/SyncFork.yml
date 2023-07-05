@@ -17,7 +17,12 @@ jobs:
       - name: Add upstream remote
         run: git remote add upstream https://github.com/easybuilders/easybuild-easyconfigs
 
-      - name: Fetch upstream changes
+      - name: Fetch upstream changes to main
+        run: gh repo sync karoshi-0815/easybuild-easyconfigs -b main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Fetch upstream changes to develop
         run: gh repo sync karoshi-0815/easybuild-easyconfigs -b develop
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
