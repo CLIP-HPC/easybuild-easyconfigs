@@ -1,4 +1,4 @@
-name: Sync Fork with Main
+name: Sync Fork with Master
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
         run: git fetch upstream
       
       - name: Check out the master branch from your local fork.
-        run: git checkout master
+        run: git checkout develop
         
       - name: Merge the changes from upstream/master into your local master branch. 
         run: git merge upstream/develop
