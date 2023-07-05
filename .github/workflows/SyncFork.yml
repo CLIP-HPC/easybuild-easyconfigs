@@ -18,10 +18,10 @@ jobs:
         run: git remote add upstream https://github.com/CLIP-HPC/easybuild-easyconfigs
 
       - name: Fetch upstream changes
-        run: git fetch upstream
+        run: git fetch upstream/main
       
       - name: Check out the master branch from your local fork.
-        run: git checkout develop
+        run: git checkout main
         
       - name: Merge the changes from upstream/master into your local master branch. 
         run: git merge 
