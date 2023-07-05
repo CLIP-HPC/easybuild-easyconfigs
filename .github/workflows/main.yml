@@ -18,5 +18,5 @@ jobs:
         run: git remote add upstream https://github.com/CLIP-HPC/easybuild-easyconfigs
 
       - name: Fetch upstream changes
-        run: git pull.rebase false upstream develop
+        run: git pull --rebase upstream develop
 
