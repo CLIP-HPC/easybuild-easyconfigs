@@ -1,0 +1,27 @@
+name: Sync Fork with Main
+
+on:
+  schedule:
+    - cron: '30 * * * *'  
+  
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/CLIP-HPC/easybuild-easyconfigs
+
+      - name: Fetch upstream changes
+        run: git fetch upstream
+      
+      - name: Check out the master branch from your local fork.
+        run: git checkout master
+        
+      - name: Merge the changes from upstream/master into your local master branch. 
+        run: git merge upstream/develop
