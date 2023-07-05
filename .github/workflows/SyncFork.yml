@@ -24,4 +24,4 @@ jobs:
         run: git checkout develop
         
       - name: Merge the changes from upstream/master into your local master branch. 
-        run: git merge upstream/develop
+        run: git merge upstream/develop --allow-unrelated-histories
